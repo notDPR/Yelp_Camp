@@ -1,0 +1,21 @@
+<% include ../partials/header.ejs %>
+<!--=======================================================================-->
+
+<div class="container text-center">
+    <h1>Create a new Comment</h1>
+    
+    <div style="width:30%; margin:30px auto 30px auto;">
+        <form action="/campgrounds/<%=maal._id%>/comments" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="" value="<%=current_user.username%>" style="margin-bottom:15px;" name="comment[author]" disabled>
+                <textarea class="form-control" rows="3"
+                style="margin-bottom:15px; resize:vertical;" placeholder="Write here...." name="comment[text]"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block form-group">Submit</button>
+        </form>
+    </div>
+    <a href="/campgrounds" class="btn btn-default">Click here to go back to campgrounds</a>
+
+<!--=======================================================================-->
+<% include ../partials/footer.ejs %>
+</div>

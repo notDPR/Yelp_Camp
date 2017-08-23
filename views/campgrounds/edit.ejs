@@ -1,0 +1,22 @@
+<% include ../partials/header.ejs %>
+<!--=======================================================================-->
+
+<div class="container text-center">
+    <h1>Edit Your Campground</h1>
+    <div style="width:30%; margin:30px auto 30px auto;">
+        <form action="/campgrounds/<%=camp_edit._id%>?_method=PUT" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" value="<%=camp_edit.name%>" style="margin-bottom:15px;" name="campground[name]">
+                <input type="text" class="form-control" value="<%=camp_edit.image%>" style="margin-bottom:15px;" name="campground[img_url]">
+                <textarea class="form-control" name="campground[description]" rows="12" style="resize:vertical;"><%=camp_edit.description%></textarea>
+            </div>
+<!--now name,image,description is all in one object "campground" & can be found at req.body.campground-->
+            <button type="submit" class="btn btn-primary btn-block form-group">Submit</button>
+        </form>
+    </div>
+    <a href="/campgrounds" class="btn btn-default">Click here to go back to campgrounds</a>
+
+<!--=======================================================================-->
+<% include ../partials/footer.ejs %>
+
+</div>

@@ -1,0 +1,39 @@
+
+.row
+{
+    display:flex;
+    flex-wrap: wrap;
+}
+body
+{
+    padding-bottom: 30px; 
+    padding-top: 70px;
+}
+.fa-free-code-camp
+{
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    display: block;
+    margin-top:5px;
+}
+.navbar-default .navbar-brand
+{
+    font-weight:bold;
+}
+img
+{
+    width: 100%;
+}
+.thumbnail
+{
+    padding:0;
+}
+hr
+{
+    margin:10px 0 10px 0 ;
+}
+.well
+{
+    padding :9px ;
+}

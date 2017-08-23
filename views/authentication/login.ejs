@@ -1,0 +1,14 @@
+<% include ../partials/header.ejs %>
+<!--=======================================================================-->
+
+<div class="container text-center" style="width:30%; margin:30px auto 30px auto;">
+    <h2>Login</h2>
+    <form action="/login" method="POST">
+        <input style="margin-bottom:15px;" type="text" class="form-control" name="username" placeholder="Username">
+        <input style="margin-bottom:15px;" type="password" class="form-control" name="password" placeholder="Password">
+        <button class="btn btn-default"  type="submit">Log In</button>
+    </form>
+</div>
+
+<!--=======================================================================-->
+<% include ../partials/footer.ejs %>
