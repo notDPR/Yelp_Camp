@@ -3,7 +3,10 @@
     width  :30%;
     margin :30px auto 30px auto;
 }
-
+.btn
+{
+    outline: none !important;
+}
 .form-control.comm
 {
     margin-bottom: 15px;
