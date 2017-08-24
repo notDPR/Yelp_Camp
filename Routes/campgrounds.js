@@ -34,6 +34,7 @@ router.post("/" , middleware.isloggedin ,function(req,res){
         name : req.body.name , 
         image : req.body.img_url , 
         description : req.body.description ,
+        price : req.body.price ,
         author : author
     }, 
         function(err,campgrounds){

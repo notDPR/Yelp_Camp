@@ -8,6 +8,16 @@
             <div class="form-group">
                 <input type="text" class="form-control comm" value="<%=camp_edit.name%>" name="campground[name]">
                 <input type="text" class="form-control comm" value="<%=camp_edit.image%>" name="campground[img_url]">
+                
+                <!--<input type="text" class="form-control comm" value="<%=camp_edit.price%>" name="campground[price]">-->
+                
+                <label class="sr-only" for="exampleInputAmount">Amount (in Rupees)</label>
+                    <div class="input-group" id="space">
+                      <div class="input-group-addon">₹</div>
+                      <input type="text" class="form-control" id="exampleInputAmount" value="<%=camp_edit.price%>" placeholder="Price" name="campground[price]">
+                      <div class="input-group-addon">/night</div>
+                    </div>
+                
                 <textarea class="form-control comm txt" name="campground[description]" rows="12"><%=camp_edit.description%></textarea>
             </div>
 <!--now name,image,description is all in one object "campground" & can be found at req.body.campground-->
