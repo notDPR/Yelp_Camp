@@ -1,4 +1,47 @@
 
+#comment_page
+{
+    width  :30%;
+    margin :30px auto 30px auto;
+}
+
+.form-control.comm
+{
+    margin-bottom: 15px;
+}
+
+.form-control.comm.txt
+{
+    resize: vertical;
+}
+
+#camp
+{
+    padding-bottom: 5px;
+}
+#camp h4
+{
+    display: inline;
+}
+#camp #price
+{
+    margin: 0;
+}
+#del_button
+{
+    display :inline;
+}
+#head_camp
+{
+    text-align :center;
+}
+.jumbotron .container a
+{
+    float :right;
+}
+
+
+
 .row
 {
     display:flex;
@@ -16,6 +59,7 @@ body
     margin-left: -50px !important;  /* 50% of your logo width */
     display: block;
     margin-top:5px;
+    float:left; 
 }
 .navbar-default .navbar-brand
 {

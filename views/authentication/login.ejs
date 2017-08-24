@@ -1,11 +1,11 @@
 <% include ../partials/header.ejs %>
 <!--=======================================================================-->
 
-<div class="container text-center" style="width:30%; margin:30px auto 30px auto;">
+<div class="container text-center" id="comment_page">
     <h2>Login</h2>
     <form action="/login" method="POST">
-        <input style="margin-bottom:15px;" type="text" class="form-control" name="username" placeholder="Username">
-        <input style="margin-bottom:15px;" type="password" class="form-control" name="password" placeholder="Password">
+        <input type="text" class="form-control comm" name="username" placeholder="Username">
+        <input type="password" class="form-control comm" name="password" placeholder="Password">
         <button class="btn btn-default"  type="submit">Log In</button>
     </form>
 </div>

@@ -16,9 +16,9 @@
             <div class="thumbnail">
                 <img class="img-responsive" src="<%=camp_sel.image%>">
                 <div class="caption">
-                    <div style="padding-bottom:5px;">
-                        <h4 style="display:inline;"><a><%=camp_sel.name%></a></h4>
-                        <h4 style="display:inline;margin:0;" class="pull-right">₹100.00/night</h4>
+                    <div id="camp">
+                        <h4><a><%=camp_sel.name%></a></h4>
+                        <h4 id="price" class="pull-right">₹100.00/night</h4>
                     </div>
                     <p>
                         <%=camp_sel.description%>
@@ -26,7 +26,7 @@
                     <p><em>Submitted By : <strong><%=camp_sel.author.username%></strong></em></p>
                     <%if(current_user && camp_sel.author.id.equals(current_user._id)){%>
                         <a class="btn btn-sm btn-warning text-right" href="/campgrounds/<%=camp_sel._id%>/edit">Edit</a>
-                        <form action="/campgrounds/<%=camp_sel._id%>?_method=DELETE" method="POST" style="display:inline;">
+                        <form action="/campgrounds/<%=camp_sel._id%>?_method=DELETE" method="POST" id="del_button">
                             <button class="btn btn-sm btn-danger">Delete</button>
                         </form>
                     <%}%>
