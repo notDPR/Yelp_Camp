@@ -1,16 +1,44 @@
-<% include partials/header.ejs %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Yelp Camp</title>
+    </head>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/main.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--empthy array or object is truthy-->
+<%if(flash_error.length > 0){%>
+  <div class="container">
+    <div class="alert alert-danger" role="alert"><%=flash_error%></div>
+  </div> 
+<%}%>
+
+<%if(flash_success.length > 0){%>
+  <div class="container">
+    <div class="alert alert-success" role="alert"><%=flash_success%></div>
+  </div> 
+<%}%>
+
 <!--=======================================================================-->
-<!--<link rel="stylesheet" href="/stylesheets/landing.css">-->
+<link rel="stylesheet" href="/stylesheets/landing.css">
 
-<div class="container text-center">
+<body>
 
-    <h1>Welcome to Yelp Camp</h1>
-    
-    <h3>This is the landing page</h3>
-    
-    <a href="/campgrounds" class="btn btn-success">View all Campgrounds</a>
+<div class="container land">
+    <h1>Welcome to YelpCamp</h1>
+    <a href="/campgrounds" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-tent"></span> Enter the Camp</a>
+</div>
 
+    <ul class="slideshow">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 
 <!--=======================================================================-->
 <% include partials/footer.ejs %>
-</div>

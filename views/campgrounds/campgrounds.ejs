@@ -7,7 +7,7 @@
     <div class="container">
         <h1 id="head_camp">Welcome to YelpCamp ;)</h1>
         <p id="head_camp">Select from our world class campgrounds</p>
-        <a href="/campgrounds/new" class="btn btn-primary">Add New Campground</a>
+        <a href="/campgrounds/new" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add a new Campground</a>
     </div>
 </div>
 
@@ -21,7 +21,7 @@
         <div class="thumbnail">
             <img src=<%=camps[i].image%>>
             <h4 class="caption"><%=camps[i].name%></h4>
-            <p><a href="/campgrounds/<%=camps[i]._id%>" class="btn btn-success btn-sm">More Info</a></p>
+            <p><a href="/campgrounds/<%=camps[i]._id%>" class="btn btn-success btn-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> More Info</a></p>
         </div>
     </div>
 <%}%>

@@ -1,12 +1,103 @@
 body
 {
-    background :url(http://www.hdwallpapers.in/walls/night_camp_sky_stars-wide.jpg);
-    background-size: cover;
-    background-position: center; 
+    background-color :#000;
+    font-family:"lato";
+}
+
+.container.land
+{
+    padding-top: 25vh;
+    text-align : center;
+    position   : relative;
+    z-index    : 1;
+}
+
+.container.land h1
+{
+    text-shadow: 0px 0px 20px grey;
+    color: #f8f3f3;
+    font-weight: 600;
+    font-size: 4em;
+}
+
+.container.land a
+{
+    box-shadow: 1px 0px 20px 0px grey;
+}
+
+.slideshow
+{
+    position :fixed;
+    width    :100%;
+    height   :100%;
+    margin   :0;
+    padding: 0;
+    top      :0;
+    left     :0;
+    z-index  :0;
+    list-style:none;
     
 }
-html,body
+
+.slideshow li
 {
-	height: 100%;
-	width: 100% ;
+    position           : fixed;
+    width              : 100%;
+    height             : 100%;
+    top                : 0;
+    left               : 0;
+    background-position: 50% 50%;
+    background-size    :cover;
+    z-index            : 0;
+    opacity            : 0;
+    animation          : image_animation 60s linear infinite ;
+}
+
+.slideshow li:nth-child(1)
+{
+    background-image : url(https://images5.alphacoders.com/555/thumb-1920-555700.jpg);
+    animation-delay:0s;
+}
+.slideshow li:nth-child(2)
+{
+    background-image : url(https://images6.alphacoders.com/661/661681.jpg);
+    animation-delay:10s;
+}
+.slideshow li:nth-child(3)
+{
+    background-image : url(https://images8.alphacoders.com/742/742586.jpg);
+    animation-delay:20s;
+}
+.slideshow li:nth-child(4)
+{
+    background-image : url(https://images3.alphacoders.com/151/151005.jpg);
+    animation-delay:30s;
+}
+.slideshow li:nth-child(5)
+{
+    background-image : url(http://www.wallpaperup.com/uploads/wallpapers/2014/11/29/533733/6d1bcc2d35708e06deef776638845e88.jpg);
+    animation-delay:40s;
+}
+.slideshow li:nth-child(6)
+{
+    background-image : url(https://images.alphacoders.com/744/thumb-1920-744255.jpg);
+    animation-delay:50s;
+}
+
+@keyframes image_animation
+{
+    0%{
+        opacity:0;
+        animation-timing-function:ease-in;
+    }
+    8.33%{
+        opacity:1;
+        animation-timing-function:ease-out;
+    }
+    16.66%{
+        opacity:1;
+    }
+    24.99%{
+        opacity:0;
+    }
 }
