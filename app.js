@@ -14,9 +14,10 @@ var commentRoutes    = require("./Routes/comments.js"),
     campgroundRoutes = require("./Routes/campgrounds.js"),
     authRoutes       = require("./Routes/auth.js") ;
 
-//mongoose.connect("mongodb://localhost/yelp_camp") ;
-mongoose.connect("mongodb://himanshu:my1stwebsite@ds157723.mlab.com:57723/yelp_camp") ;
+mongoose.connect(process.env.DATABASEURL);
+
 //mongodb://himanshu:my1stwebsite@ds157723.mlab.com:57723/yelp_camp
+
 app.use(bodyparser.urlencoded({extended :true})) ;
 app.use(express.static(__dirname+"/public")) ;
 app.use(bodyparser.urlencoded({extended :true})) ;
