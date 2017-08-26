@@ -1,5 +1,6 @@
 var express    = require("express") ;
 var middleware = require("../middleware");
+var moment     = require("moment-timezone");
 
 //var router  = express.Router() ; 
 //if you are using (baadshah) in app.js then you need to add the below thing so that 'id' is not NULL
@@ -33,6 +34,7 @@ router.post("/",middleware.isloggedin,function(req,res){
                 else {
                     comm.author.id       = req.user._id ;
                     comm.author.username = req.user.username ;
+                    comm.date            = moment().tz("Asia/Colombo").format('llll'); 
                     comm.save() ;
                     camp.comments.push(comm) ;
                     camp.save();

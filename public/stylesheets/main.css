@@ -1,13 +1,13 @@
 #comment_page
 {
     width  :30%;
-    margin :30px auto 30px auto;
+    margin :30px auto 15px auto;
 }
 .btn
 {
     outline: none !important;
 }
-.form-control.comm
+.form-control.comm , #space
 {
     margin-bottom: 15px;
 }
@@ -25,7 +25,7 @@
 {
     display: inline;
 }
-#camp #price
+#camp #rate
 {
     margin: 0;
 }

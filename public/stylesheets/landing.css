@@ -1,7 +1,7 @@
 body
 {
-    background-color :#000;
-    font-family:"lato";
+    background-color :#000 !important;
+    font-family      : "lato" !important;
 }
 
 .container.land
@@ -31,7 +31,7 @@ body
     width    :100%;
     height   :100%;
     margin   :0;
-    padding: 0;
+    padding  :0;
     top      :0;
     left     :0;
     z-index  :0;
@@ -48,6 +48,7 @@ body
     left               : 0;
     background-position: 50% 50%;
     background-size    :cover;
+    background-repeat  : no-repeat;
     z-index            : 0;
     opacity            : 0;
     animation          : image_animation 60s linear infinite ;
@@ -56,7 +57,7 @@ body
 .slideshow li:nth-child(1)
 {
     background-image : url(https://images5.alphacoders.com/555/thumb-1920-555700.jpg);
-    animation-delay:0s;
+    animation-delay  : 0s;
 }
 .slideshow li:nth-child(2)
 {
@@ -86,18 +87,18 @@ body
 
 @keyframes image_animation
 {
-    0%{
-        opacity:0;
-        animation-timing-function:ease-in;
-    }
-    8.33%{
-        opacity:1;
-        animation-timing-function:ease-out;
-    }
-    16.66%{
-        opacity:1;
-    }
-    24.99%{
-        opacity:0;
-    }
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
 }

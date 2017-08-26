@@ -1,5 +1,6 @@
 var express     = require("express") ;
 var router      = express.Router() ; 
+var moment      = require("moment-timezone");
 var campground  = require("../models/campground.js") ;
 var middleware  = require("../middleware");
 // var middleware = rewuire("../middleware/index.js");  
@@ -21,38 +22,55 @@ router.get("/new" , middleware.isloggedin ,function(req,res){
        else res.render("campgrounds/new.ejs" , {camps : campground}) ;
     });
 });
-
+    
 // Create New Campground
 router.post("/" , middleware.isloggedin ,function(req,res){
-   //console.log(req.body) ; 
+   console.log("REQ.BODY = "+req.body) ; 
 //   campGround.push({name: req.body.name , image: req.body.img_url}) ;
     var author = {
         id : req.user._id ,
         username : req.user.username
     };
-    campground.create({
-        name : req.body.name , 
-        image : req.body.img_url , 
-        description : req.body.description ,
-        author : author
-    }, 
-        function(err,campgrounds){
-            if(err) console.log(err) ;
-            else {
-                console.log(campgrounds);
-                res.redirect("/campgrounds") ;
-            }
-    });
+                 campground.create({
+                    name        : req.body.name , 
+                    image       : req.body.img_url , 
+                    description : req.body.description ,
+                    price       : req.body.price ,
+                    place       : req.body.place ,
+                    author      : author,
+                    date        : moment().tz("Asia/Colombo").format('llll')
+                }, 
+                    function(err,campgrounds){
+                        if(err) console.log(err) ;
+                        else {
+                            console.log(campgrounds);
+                            res.redirect("/campgrounds") ;
+                        }
+                });
 //   res.render("campgrounds/campgrounds.ejs" , {camps:campGround}) ;
 });
+
+var googleMapsClient = require("@google/maps").createClient({
+    key : process.env.API_KEY
+    });
 
 // Show Route - shows info about the selected campground
 router.get("/:id" ,function(req,res){
     campground.findById(req.params.id).populate("comments").exec(function(err , camp){
         if(err) console.log(err) ;
         else {
-             console.log(camp);
-             res.render("campgrounds/show.ejs",{camp_sel:camp}) ;
+            var adress = {} ;
+            var location = camp.name + " , " + camp.place ;
+            googleMapsClient.geocode({address : location} ,function(err , response){
+                if(err) console.log(err);
+                else{
+                     adress.lat   = response.json.results[0].geometry.location.lat ;
+                     adress.lng   = response.json.results[0].geometry.location.lng ;
+                    
+                    console.log(camp);
+                    res.render("campgrounds/show.ejs",{camp_sel:camp , lat:adress.lat , lng:adress.lng}) ;
+                }
+            });
         }
     }) ;
 });
@@ -81,7 +99,10 @@ router.put("/:id",middleware.checkCampgroundOwnership,function(req,res){
             req.flash("error","Something went wrong.");
         }
         else {
-            console.log(req.params.name + "is UPDATED !");
+            console.log(req.params.name + " is UPDATED !");
+            
+            camp_upd.name = "CHANGED" ;
+            
             req.flash("success","Campground Updated.");
         }
         res.redirect("/campgrounds/" + req.params.id ) ;

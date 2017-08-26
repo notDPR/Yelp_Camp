@@ -7,6 +7,7 @@ var express                  = require("express") ,
     expressSession           = require("express-session"),
     methodOverride           = require("method-override"),
     user                     = require("./models/user.js"),
+    moment                   = require("moment-timezone"),
     flash                    = require("connect-flash") ;
 
 // Requiring Routes 
@@ -16,7 +17,6 @@ var commentRoutes    = require("./Routes/comments.js"),
 
 var url = mongoose.connect(process.env.DATABASEURL) || "mongodb://localhost/yelp_camp" ;
 // for safety purposes
-
 mongoose.connect(process.env.url);
 
 app.use(bodyparser.urlencoded({extended :true})) ;
@@ -43,7 +43,7 @@ passport.deserializeUser(user.deserializeUser());
 // Creating a middleware for every ROUTE
 app.use(function(req,res,next){
     res.locals.current_user  = req.user ;
-    res.locals.flash_error = req.flash("error") ;
+    res.locals.flash_error   = req.flash("error") ;
     res.locals.flash_success = req.flash("success") ;
     next();
 });

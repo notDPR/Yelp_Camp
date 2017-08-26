@@ -3,27 +3,52 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <p class="lead">Yelp Camp</p>
             <div class="list-group">
                 <li class="list-group-item active">Info 1</li>
                 <li class="list-group-item">Info 2</li>
                 <li class="list-group-item">Info 3</li>
             </div>
+            
+                <!--GOOGLE MAP-->
+                <div id="space">
+                     <div id="map" style="height: 300px; width: 100%;"></div>
+                            <script>
+                              function initMap() {
+                                var uluru = {lat: <%=lat%>, lng: <%=lng%>};
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                  zoom: 13,
+                                  center: uluru
+                                });
+                                var marker = new google.maps.Marker({
+                                  position: uluru,
+                                  map: map
+                                });
+                              }
+                            </script>
+                            <script async defer  src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.API_KEY%>&callback=initMap">
+                            </script>
+                </div>
+                
+            <a href="/campgrounds" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
         </div>
         
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div class="thumbnail">
                 <img class="img-responsive" src="<%=camp_sel.image%>">
                 <div class="caption">
                     <div id="camp">
                         <h4><a><%=camp_sel.name%></a></h4>
-                        <h4 id="price" class="pull-right">₹100.00/night</h4>
+                        <h4 id="rate" class="pull-right">₹ <%=camp_sel.price%>/night</h4>
                     </div>
                     <p>
                         <%=camp_sel.description%>
                     </p>
-                    <p><em>Submitted By : <strong><%=camp_sel.author.username%></strong></em></p>
+                        <p>
+                            <em>Submitted By : <strong><%=camp_sel.author.username%></strong></em>
+                            <span class="pull-right"><%=camp_sel.date%></span>
+                        </p>
                     <%if(current_user && camp_sel.author.id.equals(current_user._id)){%>
                         <a class="btn btn-sm btn-warning text-right" href="/campgrounds/<%=camp_sel._id%>/edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
                         <form action="/campgrounds/<%=camp_sel._id%>?_method=DELETE" method="POST" id="del_button">
@@ -33,6 +58,7 @@
                 </div>
             </div>
             
+            <!--COMMENTS-->
             <div class="well">
                 <div class="text-right">
                     <a class="btn btn-success" href="/campgrounds/<%=camp_sel._id%>/comments/new"><i class="fa fa-plus" aria-hidden="true"></i> New Comment</a>
@@ -50,7 +76,7 @@
                                 </form>
                             <%}%>
                             
-                            <span class="pull-right">10 days ago</span>
+                            <span class="pull-right"><%=camp_sel.comments[i].date%></span>
                             <p><%=camp_sel.comments[i].text%></p>
                         </div>
                     </div>
