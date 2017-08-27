@@ -68,7 +68,11 @@ router.get("/:id" ,function(req,res){
                      adress.lng   = response.json.results[0].geometry.location.lng ;
                     
                     console.log(camp);
-                    res.render("campgrounds/show.ejs",{camp_sel:camp , lat:adress.lat , lng:adress.lng}) ;
+                    res.render("campgrounds/show.ejs",{
+                        camp_sel : camp , 
+                        lat      : adress.lat ,
+                        lng      : adress.lng 
+                    }) ;
                 }
             });
         }
