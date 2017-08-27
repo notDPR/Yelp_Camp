@@ -7,7 +7,6 @@ var express                  = require("express") ,
     expressSession           = require("express-session"),
     methodOverride           = require("method-override"),
     user                     = require("./models/user.js"),
-    moment                   = require("moment-timezone"),
     flash                    = require("connect-flash") ;
 
 // Requiring Routes 
