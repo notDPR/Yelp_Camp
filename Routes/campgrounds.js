@@ -31,7 +31,6 @@ router.post("/" , middleware.isloggedin ,function(req,res){
         id : req.user._id ,
         username : req.user.username
     };
-<<<<<<< HEAD
                  campground.create({
                     name        : req.body.name , 
                     image       : req.body.img_url , 
@@ -48,22 +47,6 @@ router.post("/" , middleware.isloggedin ,function(req,res){
                             res.redirect("/campgrounds") ;
                         }
                 });
-=======
-    campground.create({
-        name : req.body.name , 
-        image : req.body.img_url , 
-        description : req.body.description ,
-        price : req.body.price ,
-        author : author
-    }, 
-        function(err,campgrounds){
-            if(err) console.log(err) ;
-            else {
-                console.log(campgrounds);
-                res.redirect("/campgrounds") ;
-            }
-    });
->>>>>>> 117f6192a2b4d80a9160743606f98a283938c05b
 //   res.render("campgrounds/campgrounds.ejs" , {camps:campGround}) ;
 });
 
