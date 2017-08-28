@@ -3,42 +3,87 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <p class="lead">Yelp Camp</p>
-            <div class="list-group">
-                <li class="list-group-item active">Info 1</li>
-                <li class="list-group-item">Info 2</li>
-                <li class="list-group-item">Info 3</li>
-            </div>
+        <div class="col-md-4 col-sm-12" >
+            <!--<p class="lead"><h2><%=camp_sel.name%></h2></p>-->
+            <!--<div class="list-group">-->
+            <!--    <li class="list-group-item active">Info 1</li>-->
+            <!--    <li class="list-group-item">Info 2</li>-->
+            <!--    <li class="list-group-item">Info 3</li>-->
+            <!--</div>-->
             
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                           <strong><%=maal.result.name%></strong>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                           <p><strong><%=maal.result.formatted_address%></strong></p>
+                           <p>Contact no. - <%=maal.result.formatted_phone_number%></p>
+                           <!--<p>International Contact no. - <%=maal.result.international_phone_number%></p>-->
+                           <p>Rating : <%=maal.result.rating%></p>
+                           <p>Website : <a target="_blank" href="<%=maal.result.website%>"><%=maal.result.website%></a></p>
+                           <%if(maal.result.opening_hours){%>
+                           <p>Hours : <%=maal.result.opening_hours.weekday_text[0]%><br>
+                                      <%=maal.result.opening_hours.weekday_text[1]%><br>
+                                      <%=maal.result.opening_hours.weekday_text[2]%><br>
+                                      <%=maal.result.opening_hours.weekday_text[3]%><br>
+                                      <%=maal.result.opening_hours.weekday_text[4]%><br>
+                                      <%=maal.result.opening_hours.weekday_text[5]%></p>
+                            <%}%>
+                           <!--<p><%=maal.result.types%></p>-->
+                    </div>
+                </div>
+
                 <!--GOOGLE MAP-->
                <div id="space">
-                        <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.API_KEY%>&libraries=places&callback=initMap">
-                        </script>
+                       <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+                        <meta charset="utf-8">
                         <script>
-                        function initMap() {
-                                var uluru = {lat:<%=lat%>, lng: <%=lng%>};
-                                var map = new google.maps.Map(document.getElementById('map'), {
-                                  zoom: 17,
-                                  center: uluru
-                                });
+                      
+                          function initMap() {
+                            
+                            var uluru = {
+                                lat: <%=maal.result.geometry.location.lat%>, 
+                                lng: <%=maal.result.geometry.location.lng%>
+                            };
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                              zoom: 15,
+                              center: uluru
+                            });
+                            
+                             var infowindow = new google.maps.InfoWindow();
+                             var service = new google.maps.places.PlacesService(map);
+                             
+                             service.getDetails({ placeId: "<%=maal.result.place_id%>"}, function(place, status){
+                                // console.log(place);
+                              if (status === google.maps.places.PlacesServiceStatus.OK) {
                                 var marker = new google.maps.Marker({
-                                  position: uluru,
-                                  map: map
+                                  map: map,
+                                  position: place.geometry.location
+                                });
+                                google.maps.event.addListener(marker, 'click', function() {
+                                  infowindow.setContent(
+                                    '<div><strong>' + place.name + '</strong><br>' +
+                                    'Place ID: ' + place.place_id + '<br>' +
+                                    place.formatted_address + '<br>' + 
+                                    "Rating : " + place.rating + '</div>');
+                                  infowindow.open(map, this);
                                 });
                               }
+                            });
+                        }
+                        </script>
+                        <script async defer0
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4vxnp5W5jLOGfU5ZHtzJzQmJHhcIqLDc&libraries=places&callback=initMap">
                         </script>
                         <div id="map"></div>
-                        <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.API_KEY%>&callback=initMap">
-                        </script>
-                </div>
-                
-            <a href="/campgrounds" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
         </div>
+             <a href="/campgrounds" id="space" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
+
+    </div>
         
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-12">
             <div class="thumbnail">
                 <img class="img-responsive" src="<%=camp_sel.image%>">
                 <div class="caption">
