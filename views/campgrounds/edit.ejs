@@ -1,13 +1,22 @@
 <% include ../partials/header.ejs %>
 <!--=======================================================================-->
 
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script>
+    function initialize() {
+        var input = document.getElementById('searchTextField');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 <div class="container text-center">
     <h1>Edit Your Campground</h1>
     <div id="comment_page">
         <form action="/campgrounds/<%=camp_edit._id%>?_method=PUT" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control comm" value="<%=camp_edit.name%>" name="campground[name]">
-                <input type="text" class="form-control comm" value="<%=camp_edit.place%>" name="campground[place]">
+                <input type="text" id="searchTextField" class="form-control comm" value="<%=camp_edit.place%>" name="campground[place]">
                 <input type="text" class="form-control comm" value="<%=camp_edit.image%>" name="campground[img_url]">
                 
                 <!--<input type="text" class="form-control comm" value="<%=camp_edit.price%>" name="campground[price]">-->

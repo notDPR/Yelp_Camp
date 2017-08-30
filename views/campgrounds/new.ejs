@@ -1,5 +1,17 @@
 <% include ../partials/header.ejs %>
+
 <!--=======================================================================-->
+
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script>
+    function initialize() {
+        var input = document.getElementById('searchTextField');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
 
 <div class="container text-center">
     <h1>Create a new Campground</h1>
@@ -8,7 +20,7 @@
         <form action="/campgrounds" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control comm" placeholder="Name of the campground" name="name">
-                <input type="text" class="form-control comm" placeholder="Address" name="place">
+                <input type="text" id="searchTextField" class="form-control comm" placeholder="Address" name="place">
                 <input type="text" class="form-control comm" placeholder="Image URL" name="img_url">
                 
                 <!--<input type="text" class="form-control comm" placeholder="Price" name="price">-->

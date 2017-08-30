@@ -3,6 +3,7 @@ var router      = express.Router() ;
 var moment      = require("moment-timezone");
 var campground  = require("../models/campground.js") ;
 var middleware  = require("../middleware");
+var request     = require("request");
 // var middleware = rewuire("../middleware/index.js");  
 //both ways are correct - by requiring a directory , index.js file inside that directory is automatically required.
 
@@ -66,14 +67,25 @@ router.get("/:id" ,function(req,res){
                 else{
                      adress.lat   = response.json.results[0].geometry.location.lat ;
                      adress.lng   = response.json.results[0].geometry.location.lng ;
-                    
+                    //res.send(response);
                     console.log(camp);
-                    res.render("campgrounds/show.ejs",{
-                        camp_sel : camp , 
-                        lat      : adress.lat ,
-                        lng      : adress.lng 
-                    }) ;
-                }
+                    var place_id = response.json.results[0].place_id ;
+                    request("https://maps.googleapis.com/maps/api/place/details/json?placeid="+place_id+"&key="+process.env.API_KEY,
+                        function(err,response,body){
+                            if(err) {
+                                console.log(err) ;
+                                res.redirect("/campgrounds");
+                            }
+                            else{
+                                var maal = JSON.parse(body);
+                                res.render("campgrounds/show.ejs",{
+                                    camp_sel : camp , 
+                                    maal : maal 
+                                }) ;
+                            }
+                            
+                        });
+                    }
             });
         }
     }) ;
