@@ -1,10 +1,12 @@
+
 #map{
     height: 330px !important;
     width: 100%   !important;
 }
 #comment_page
 {
-    width  :408px;
+    width  :400px;
+    /*width :30%;*/
     margin :30px auto 15px auto;
 }
 .btn
@@ -40,10 +42,6 @@
 #head_camp
 {
     text-align :center;
-}
-.jumbotron .container a
-{
-    float :right;
 }
 
 .row

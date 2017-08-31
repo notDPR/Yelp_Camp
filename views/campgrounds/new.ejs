@@ -9,7 +9,9 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
-<div class="container text-center">
+<div class="container-fluid text-center">
+    <div class="row">
+        <div>
     <h1>Create a new Campground</h1>
     
     <div id="comment_page">
@@ -34,8 +36,11 @@
             <button type="submit" class="btn btn-primary btn-block form-group">Submit</button>
         </form>
     </div>
+    <div class="col-md-12">
     <a href="/campgrounds" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
-
+    </div>
+</div>
+</div>
 <!--=======================================================================-->
 <% include ../partials/footer.ejs %>
 </div>
