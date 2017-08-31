@@ -10,9 +10,8 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
-<div class="container text-center">
+<div class="container text-center" id="comment_page">
     <h1>Edit Your Campground</h1>
-    <div id="comment_page">
         <form action="/campgrounds/<%=camp_edit._id%>?_method=PUT" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control comm" value="<%=camp_edit.name%>" name="campground[name]">
@@ -31,12 +30,10 @@
                 <textarea class="form-control comm txt" name="campground[description]" rows="12"><%=camp_edit.description%></textarea>
             </div>
 <!--now name,image,description is all in one object "campground" & can be found at req.body.campground-->
-            <button type="submit" class="btn btn-primary btn-block form-group">Submit</button>
+            <button type="submit" class="btn btn-primary btn-block form-group" id="space">Submit</button>
         </form>
-    </div>
     <a href="/campgrounds" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
+</div>
 
 <!--=======================================================================-->
 <% include ../partials/footer.ejs %>
-
-</div>

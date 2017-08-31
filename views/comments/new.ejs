@@ -1,20 +1,17 @@
 <% include ../partials/header.ejs %>
 <!--=======================================================================-->
 
-<div class="container text-center">
+<div class="container text-center" id="comment_page">
     <h1>Create a new Comment</h1>
     
-    <div id="comment_page">
         <form action="/campgrounds/<%=maal._id%>/comments" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control comm" placeholder="" value="<%=current_user.username%>" name="comment[author]" disabled>
                 <textarea class="form-control comm txt" rows="5" placeholder="Write here...." name="comment[text]"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-block form-group">Submit</button>
+            <button type="submit" class="btn btn-primary btn-block form-group" id="space">Submit</button>
         </form>
-    </div>
     <a href="/campgrounds" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
-
+</div>
 <!--=======================================================================-->
 <% include ../partials/footer.ejs %>
-</div>

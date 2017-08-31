@@ -9,12 +9,8 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
-<div class="container-fluid text-center">
-    <div class="row">
-        <div>
+<div class="container-fluid text-center" id="comment_page">
     <h1>Create a new Campground</h1>
-    
-    <div id="comment_page">
         <form action="/campgrounds" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control comm" placeholder="Name of the campground" name="name">
@@ -33,14 +29,9 @@
                 <textarea class="form-control comm txt" placeholder="Write something about the Campsite.." name="description"
                 rows="10"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-block form-group">Submit</button>
+            <button type="submit" class="btn btn-primary btn-block form-group" id="space">Submit</button>
         </form>
-    </div>
-    <div class="col-md-12">
     <a href="/campgrounds" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
-    </div>
-</div>
 </div>
 <!--=======================================================================-->
 <% include ../partials/footer.ejs %>
-</div>
