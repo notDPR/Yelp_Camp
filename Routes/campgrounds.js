@@ -20,7 +20,7 @@ router.get("/" , function(req,res){
 router.get("/new" , middleware.isloggedin ,function(req,res){
     campground.find({}, function(err,campground){
        if(err) console.log("Error in retrieving campgrounds from database") ;
-       else res.render("campgrounds/new.ejs" , {camps : campground}) ;
+       else res.render("campgrounds/new.ejs",{camps : campground});
     });
 });
     

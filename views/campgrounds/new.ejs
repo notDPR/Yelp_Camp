@@ -1,5 +1,6 @@
 <% include ../partials/header.ejs %>
 <!--=======================================================================-->
+
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.API_KEY%>&libraries=places">></script>
 <script>
     function initialize() {
@@ -22,7 +23,7 @@
                 <label class="sr-only" for="exampleInputAmount">Amount (in Rupees)</label>
                     <div class="input-group" id="space">
                       <div class="input-group-addon">₹</div>
-                      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Price" name="price">
+                      <input type="text" class="form-control input-numeral" id="exampleInputAmount" placeholder="Price" name="price" style="text-align:right;">
                       <div class="input-group-addon">/night</div>
                     </div>
                 
@@ -33,5 +34,15 @@
         </form>
     <a href="/campgrounds" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
 </div>
+
+ <!--INPUT NUMERAL FORMATTING-->
+<script src="https://nosir.github.io/cleave.js/dist/cleave.min.js"></script>
+<script type="text/javascript">
+    var cleaveNumeral = new Cleave('.input-numeral', {
+    numeral: true,
+    numeralThousandsGroupStyle: 'lakh'
+});
+</script>
+
 <!--=======================================================================-->
 <% include ../partials/footer.ejs %>
