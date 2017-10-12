@@ -1,4 +1,5 @@
 <% include ../partials/header.ejs %>
+
 <!--=======================================================================-->
 
 <div class="container">
@@ -15,8 +16,10 @@
     <div class="text-center">
     <% for(var i=0;i<camps.length;i++){ %>
         <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
-            <div class="thumbnail">
-                <img src=<%=camps[i].image%>>
+            <div class="thumbnail" data-aos="fade-up">
+                <div class="view hm-zoom">
+                    <img class="img-fluid" src=<%=camps[i].image%>>
+                </div>
                 <h4 class="caption"><%=camps[i].name%></h4>
                 <p><a href="/campgrounds/<%=camps[i]._id%>" class="btn btn-success btn-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> More Info</a></p>
             </div>
@@ -28,5 +31,13 @@
 
 
 <!--=======================================================================-->
+
+<script>
+    AOS.init({
+  duration: 250 ,
+  once : true
+    })
+</script>
+
 <% include ../partials/footer.ejs %>
 

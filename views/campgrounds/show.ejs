@@ -1,20 +1,11 @@
 <% include ../partials/header.ejs %>
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-3093718851537608",
-    enable_page_level_ads: true
-  });
-</script>
-
-
 <!--=======================================================================-->
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
-                <div class="panel panel-primary">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="panel panel-primary" data-aos="fade-right">
                     <div class="panel-heading">
                         <div class="panel-title">
                            <strong><%=maal.result.name%></strong>
@@ -39,7 +30,7 @@
                 </div>
 
                 <!--GOOGLE MAP-->
-               <div id="space">
+               <div id="space" data-aos="fade-right">
                        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
                         <meta charset="utf-8">
                         <script>
@@ -82,13 +73,13 @@
                         </script>
                         <div id="map"></div>
                 </div>
-             <a href="/campgrounds" id="space" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
+             <a data-aos="fade-right" href="/campgrounds" id="space" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
             </div>
         
         <!--CAMPGROUND INFO-->
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <div class="thumbnail">
-                <img class="img-responsive" src="<%=camp_sel.image%>">
+            <div class="thumbnail" data-aos="fade-left">
+                    <img class="img-responsive" src="<%=camp_sel.image%>">
                 <div class="caption">
                     <div id="camp">
                         <h4><a><%=camp_sel.name%></a></h4>
@@ -111,7 +102,7 @@
             </div>
             
             <!--COMMENTS-->
-            <div class="well">
+            <div class="well" data-aos="fade-left">
                 <div class="text-right">
                     <a class="btn btn-success" href="/campgrounds/<%=camp_sel._id%>/comments/new"><i class="fa fa-plus" aria-hidden="true"></i> New Comment</a>
                 </div>
@@ -139,7 +130,11 @@
         
 <!--=======================================================================-->
 
-<script type="text/javascript"> var infolinks_pid = 3040370; var infolinks_wsid = 0; </script>
-<script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<script>
+    AOS.init({
+  duration: 300 ,
+  once : true
+    })
+</script>
 
 <% include ../partials/footer.ejs %>

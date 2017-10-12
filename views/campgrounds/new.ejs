@@ -10,8 +10,10 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
-<div class="container text-center" id="comment_page">
-    <h1>Add a new Campground</h1>
+<span style="text-align:left; float : left ; margin :100px auto 0 auto">I am in a WELL</span>
+
+<div class="container text-center" id="comment_page" style="margin-top:5px;">
+    <h1 style="margin-bottom : 15px;margin-top:0;">Add a new Campground</h1>
         <form action="/campgrounds" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control comm" placeholder="Name of the campground" name="name">
@@ -43,6 +45,10 @@
     numeralThousandsGroupStyle: 'lakh'
 });
 </script>
+
+<!--TYPEIT.JS-->
+
+
 
 <!--=======================================================================-->
 <% include ../partials/footer.ejs %>
