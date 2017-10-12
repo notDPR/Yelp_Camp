@@ -10,11 +10,13 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
-<div class="container text-center" id="comment_page">
+<!--=======================================================================-->
+
+<div class="container text-center" id="comment_page" data-aos="fade-up">
     <h1>Edit Your Campground</h1>
         <form action="/campgrounds/<%=camp_edit._id%>?_method=PUT" method="POST">
             <div class="form-group">
-                <input type="text" class="form-control comm" value="<%=camp_edit.name%>" name="campground[name]">
+                <input type="text" class="form-control comm" value="<%=camp_edit.name%>" name="campground[name]"><label>Campground</label>
                 <input type="text" id="searchTextField" class="form-control comm" value="<%=camp_edit.place%>" name="campground[place]">
                 <input type="text" class="form-control comm" value="<%=camp_edit.image%>" name="campground[img_url]">
                 
@@ -23,7 +25,7 @@
                 <label class="sr-only" for="exampleInputAmount">Amount (in Rupees)</label>
                     <div class="input-group" id="space">
                       <div class="input-group-addon">₹</div>
-                      <input type="text" class="form-control" id="exampleInputAmount" value="<%=camp_edit.price%>" placeholder="Price" name="campground[price]">
+                      <input type="text" class="form-control input-numeral" id="exampleInputAmount" value="<%=camp_edit.price%>" placeholder="Price" name="campground[price]" style="text-align:right;">
                       <div class="input-group-addon">/night</div>
                     </div>
                 
@@ -36,4 +38,16 @@
 </div>
 
 <!--=======================================================================-->
+
+ <!--INPUT NUMERAL FORMATTING-->
+<script src="https://nosir.github.io/cleave.js/dist/cleave.min.js"></script>
+<script type="text/javascript">
+    var cleaveNumeral = new Cleave('.input-numeral', {
+    numeral: true,
+    numeralThousandsGroupStyle: 'lakh'
+});
+</script>
+
+<!--=======================================================================-->
+
 <% include ../partials/footer.ejs %>

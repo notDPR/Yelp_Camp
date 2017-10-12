@@ -10,9 +10,9 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
-<span style="text-align:left; float : left ; margin :100px auto 0 auto">I am in a WELL</span>
+<!--=======================================================================-->
 
-<div class="container text-center" id="comment_page" style="margin-top:5px;">
+<div class="container text-center" id="comment_page" style="margin-top:5px;" data-aos="fade-up">
     <h1 style="margin-bottom : 15px;margin-top:0;">Add a new Campground</h1>
         <form action="/campgrounds" method="POST">
             <div class="form-group">
@@ -37,6 +37,8 @@
     <a href="/campgrounds" class="btn btn-default"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to campgrounds</a>
 </div>
 
+<!--=======================================================================-->
+
  <!--INPUT NUMERAL FORMATTING-->
 <script src="https://nosir.github.io/cleave.js/dist/cleave.min.js"></script>
 <script type="text/javascript">
@@ -47,8 +49,6 @@
 </script>
 
 <!--TYPEIT.JS-->
-
-
 
 <!--=======================================================================-->
 <% include ../partials/footer.ejs %>
