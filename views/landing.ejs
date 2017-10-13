@@ -4,13 +4,16 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Yelp Camp</title>
     </head>
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-<link rel="stylesheet" href="/stylesheets/main.css">
-<!--<script src="https://code.jquery.com/jquery-2.1.3.js"></script>-->
-<link rel="stylesheet" href="/stylesheets/landing.css">
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <!--<script src="https://code.jquery.com/jquery-2.1.3.js"></script>-->
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+        <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 
 <!--empthy array or object is truthy-->
 <%if(flash_error.length > 0){%>
@@ -30,8 +33,8 @@
 <body>
 
 <div class="container land">
-    <h1>Welcome to YelpCamp</h1>
-    <a href="/campgrounds" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-tent"></span> Enter the Camp</a>
+    <h1 data-aos="zoom-out-down" >Welcome to YelpCamp</h1>
+    <a data-aos="zoom-out-up" href="/campgrounds" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-tent"></span> Enter the Camp</a>
 </div>
 
     <ul class="slideshow">
@@ -42,6 +45,15 @@
         <li></li>
         <li></li>
     </ul>
+
+<!--=======================================================================-->
+
+<script>
+    AOS.init({
+  duration: 1200 ,
+  once : true
+    })
+</script>
 
 <!--=======================================================================-->
 <% include partials/footer.ejs %>
