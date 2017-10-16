@@ -12,60 +12,60 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="stylesheet" href="/stylesheets/main.css">
+    
+    <!--ANIMATION ON SCROLL-->
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-    
-    
+
     <body>
 
-<nav class="navbar navbar-default navbar-fixed-top" data-aos="fade-down">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
-      data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tent"></span> YelpCamp</a>
-      <!--<div><i class="fa fa-free-code-camp fa-3x" aria-hidden="true"></i></div>-->
-    </div>
-    
-     <!--Collect nav links-->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <%if(!current_user){%>
-        <li><a href="/login"><i class="fa fa-user-circle" aria-hidden="true"></i> Log In</a></li>
-        <li><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
-        <%}else{%>
-        <li><a>Signed In As : <strong><%=current_user.username%></strong></a></li>
-        <li><a href="/logout">Log Out</a></li>
-        <%}%>
-      </ul>
-    </div> <!-- Navbar Collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<!--empthy array or object is truthy-->
-<%if(flash_error.length > 0){%>
-  <div class="container">
-    <div class="alert alert-danger" role="alert" data-aos="fade-down"><%=flash_error%></div>
-  </div> 
-<%}%>
-
-<%if(flash_success.length > 0){%>
-  <div class="container">
-    <div class="alert alert-success" role="alert" data-aos="fade-down"><%=flash_success%></div>
-  </div> 
-<%}%>
+      <nav class="navbar navbar-default navbar-fixed-top" data-aos="fade-down">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tent"></span> YelpCamp</a>
+            <!--<div><i class="fa fa-free-code-camp fa-3x" aria-hidden="true"></i></div>-->
+          </div>
+          
+           <!--Collect nav links-->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <%if(!current_user){%>
+              <li><a href="/login"><i class="fa fa-user-circle" aria-hidden="true"></i> Log In</a></li>
+              <li><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
+              <%}else{%>
+              <li><a>Signed In As : <strong><%=current_user.username%></strong></a></li>
+              <li><a href="/logout">Log Out</a></li>
+              <%}%>
+            </ul>
+          </div> <!-- Navbar Collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+      
+      <!--empthy array or object is truthy-->
+      <%if(flash_error.length > 0){%>
+        <div class="container">
+          <div class="alert alert-danger" role="alert" data-aos="fade-down"><%=flash_error%></div>
+        </div> 
+      <%}%>
+      
+      <%if(flash_success.length > 0){%>
+        <div class="container">
+          <div class="alert alert-success" role="alert" data-aos="fade-down"><%=flash_success%></div>
+        </div> 
+      <%}%>
 
 
 <script>
-    AOS.init({
-  duration: 200 ,
-  once : true
-    })
+        AOS.init({
+        duration: 200 ,
+        once : true
+        })
 </script>
-
