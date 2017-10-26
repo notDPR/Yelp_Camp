@@ -6,6 +6,7 @@ Everytime a user edits/deletes a campground/comment its time and date is updated
 # <h3>Open Source Resources Used</h3> 
 <li><strong>Authentication : </strong><a href="http://www.passportjs.org/">PassportJS</a></li>
 <li><strong>Database : </strong><a href="https://mongodb.github.io/node-mongodb-native/">MongoDB</a></li>
+<li><strong>Database Hosting : </strong><a href="https://mlab.com/">mLabs</a></li>
 <li><strong>Flash Messages : </strong><a href="https://github.com/jaredhanson/connect-flash">Connect-Flash</a></li>
 <li><strong>Embedded Javascript Templates : </strong><a href="http://ejs.co/">EJS</a></li>
 <li><strong>Time and Date : </strong><a href="https://momentjs.com/">MomentJS</a></li>
