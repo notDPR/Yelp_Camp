@@ -3,7 +3,7 @@ After logging in via login or sign up page users are eligible to post/edit/delet
 Everytime a user edits/deletes a campground/comment its time and date is updated using MomentJS. Flash messages(Connect-Flash) are used as toast notifications.
 <br>Prototype : https://lit-springs-62030.herokuapp.com
 
-# <h3>Open Source Resources Used</h3> 
+# <h3>Resources Used</h3> 
 <li><strong>Authentication : </strong><a href="http://www.passportjs.org/">PassportJS</a></li>
 <li><strong>Database : </strong><a href="https://mongodb.github.io/node-mongodb-native/">MongoDB</a></li>
 <li><strong>Database Hosting : </strong><a href="https://mlab.com/">mLabs</a></li>
